@@ -39,7 +39,6 @@ if not _G.interface then
     end
 
     ---@param state? boolean
-    ---@param affectInputFocus? boolean
     function interface:toggle(state, affectInputFocus)
         local newState = not self.store.visibility.app
 
@@ -50,18 +49,11 @@ if not _G.interface then
         logger.info("(interface:toggle) newState: ", newState)
 
         self:message("state::visibility::app::set", newState)
-
-        if type(affectInputFocus) == "boolean" and not affectInputFocus then
-            return debug("(interface:toggle) not affecting affectInputFocus")
-        end
-
-        SetNuiFocus(newState, newState)
     end
 
     function interface:registerInitialCallbacks()
         self:on("state::visibility::app::sync", function(state, cb)
             self.store.visibility.app = state
-            SetNuiFocus(state, state)
             cb(true)
         end)
 
