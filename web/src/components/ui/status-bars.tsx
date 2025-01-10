@@ -9,27 +9,15 @@ interface StatBarProps extends React.HTMLAttributes<HTMLDivElement> {
   vertical?: boolean;
 }
 
-export const StatBar = ({
-  Icon = TiHeartFullOutline,
-  value = 20,
-  maxValue = 100,
-  color = "#F2F2F2",
-  vertical = false,
-  ...props
-}: StatBarProps) => {
+export const StatBar = ({ Icon = TiHeartFullOutline, value = 20, maxValue = 100, color = "#F2F2F2", vertical = false, ...props }: StatBarProps) => {
   const percentage = useMemo(() => (value / maxValue) * 100, [value, maxValue]);
 
   return (
-    <div
-      className={`flex ${
-        vertical ? "h-[3dvh]" : "w-full"
-      } items-center gap-1 4k:gap-2`}
-      {...props}
-    >
-      {!vertical && <Icon className="text-y_white 4k:text-2xl 2k:text-xl" />}
+    <div className={`flex ${vertical ? "h-[3dvh]" : "w-full"} items-center gap-1 4k:gap-2`} {...props}>
+      {!vertical && <Icon className="text-y_white text-[1vw] " />}
       {!vertical && (
         <p
-          className="text-xs w-[20px] 4k:text-base 2k:text-sm text-center font-bold"
+          className="text-[0.6vw] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] w-[20px] 4k:text-base 2k:text-sm text-center font-bold"
           style={{
             color: color,
           }}
@@ -37,24 +25,16 @@ export const StatBar = ({
           {value}
         </p>
       )}
-      <div
-        className={`relative ${
-          vertical
-            ? "h-full 2k:w-[6px] w-[4px] 4k:w-[8px] rounded-full"
-            : "w-full ml-1 h-2 2k:h-3"
-        } bg-black/30  rounded-[1px] overflow-hidden`}
-      >
+      <div className={`relative drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ${vertical ? "h-full 2k:w-[6px] w-[4px] 4k:w-[8px] rounded-full" : "w-full ml-1 h-2 2k:h-3"} bg-black/30  rounded-[1px] overflow-hidden`}>
         <div
-          className={`absolute ${
-            vertical ? "bottom-0 w-full" : "left-0 h-full"
-          } transition-all bg-red-500 rounded-[1px] ease-in-out`}
+          className={`absolute ${vertical ? "bottom-0 w-full" : "left-0 h-full"} transition-all bg-red-500 rounded-[1px] ease-in-out`}
           style={{
             backgroundColor: color,
             [vertical ? "height" : "width"]: `${percentage}%`,
           }}
         />
       </div>
-      {vertical && <Icon className="text-y_white 4k:text-2xl 2k:text-xl" />}
+      {vertical && <Icon className="text-y_white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] text-[0.8vw]" />}
     </div>
   );
 };
@@ -65,12 +45,7 @@ interface StatBarSegmentedProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: string;
 }
 
-export const StatBarSegmented = ({
-  Icon = TiHeartFullOutline,
-  value = 20,
-  color = "#F2F2F2",
-  ...props
-}: StatBarSegmentedProps) => {
+export const StatBarSegmented = ({ Icon = TiHeartFullOutline, value = 20, color = "#F2F2F2", ...props }: StatBarSegmentedProps) => {
   const segments = 4;
   const segmentWidth = 100 / segments;
 
@@ -91,38 +66,15 @@ export const StatBarSegmented = ({
 
   return (
     <div className="flex items-center gap-1 w-full 4k:gap-2" {...props}>
-      <Icon className="text-y_white 4k:text-2xl 2k:text-xl" />
-      <p
-        className="text-xs 2k:text-sm 4k:text-base w-[20px] text-center font-bold"
-        style={{ color: color }}
-      >
+      <Icon className="text-y_white text-[1vw] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]" />
+      <p className="text-[0.6vw] w-[20px] text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] font-bold" style={{ color: color }}>
         {value}
       </p>
-      <div className="relative flex gap-3 w-full ml-1 h-[8px] 2k:h-3 rounded-[1px]">
+      <div className="relative flex gap-3 *:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] w-full ml-1 h-[8px] 2k:h-3 rounded-[1px]">
         {segmentFills.map((fill, index) => (
-          <svg
-            key={index}
-            width="100%"
-            height="100%"
-            className={"rounded-full "}
-            viewBox="0 0 100 24"
-            preserveAspectRatio="none"
-          >
-            <rect
-              x="0"
-              y="0"
-              width="100"
-              height="24"
-              className={"fill-black/30"}
-            />
-            <rect
-              x="0"
-              y="0"
-              width={fill}
-              height="24"
-              fill={color}
-              className={"transition-all"}
-            />
+          <svg key={index} width="100%" height="100%" className={"rounded-full "} viewBox="0 0 100 24" preserveAspectRatio="none">
+            <rect x="0" y="0" width="100" height="24" className={"fill-black/30"} />
+            <rect x="0" y="0" width={fill} height="24" fill={color} className={"transition-all"} />
           </svg>
         ))}
       </div>
