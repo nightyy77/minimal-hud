@@ -12,7 +12,6 @@ import { debug, setDebugMode } from "./utils/debug";
 import { fetchNui } from "./utils/fetchNui";
 import { isEnvBrowser } from "./utils/misc";
 import { useCompassLocationStore } from "./states/compass-location";
-import compass from "./components/compass";
 
 if (isEnvBrowser()) {
   const body = document.body;
