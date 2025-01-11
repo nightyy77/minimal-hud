@@ -40,7 +40,7 @@ const PlayerStatus = () => {
         style={{
           top: minimap.top + "px",
           left: minimap.left + "px",
-          minWidth: minimap.width + "px",
+          width: minimap.width * 2 + "px",
           height: minimap.height + "px",
         }}
       >
@@ -54,14 +54,14 @@ const PlayerStatus = () => {
           //   willChange: "transform",
           // }}
         >
-          <div className={"absolute -bottom-12 w-full flex gap-3 items-center justify-center"}>
-            <div className={"flex flex-col w-full items-center justify-center gap-1"}>
+          <div className={"absolute -bottom-12 w-full flex gap-3 items-center justify-start"}>
+            <div className={"flex flex-col w-2/4 items-center justify-center gap-1"}>
               <StatBarSegmented Icon={BiSolidShieldAlt2} value={playerState.armor} color="#2B78FC" />
               <StatBar Icon={TiHeartFullOutline} value={playerState.health} color="#06CE6B" maxValue={100} />
             </div>
             {isUsingFramework && (
               <>
-                <div className="absolute bottom-1 -right-24 gap-2 flex items-center">
+                <div className="w-2/4 flex gap-3">
                   {typeof playerState.mic === "boolean" && playerState.mic === true ? <StatBar Icon={FaMicrophone} value={playerState.mic ? 100 : 0} color="#FFFF00" vertical /> : typeof playerState.voice === "number" ? <StatBar Icon={FaMicrophone} value={playerState.voice} color="#ffffff" vertical /> : null}
 
                   <StatBar Icon={IoFastFood} value={playerState.hunger} color="#FB8607" vertical />
