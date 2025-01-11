@@ -21,4 +21,12 @@ function customFramework:getPlayerStress()
     return 0
 end
 
+function customFramework:getPlayerOxygen()
+    return 100
+end
+
+function customFramework:getPlayerStamina()
+    return 100
+end
+
 return customFramework

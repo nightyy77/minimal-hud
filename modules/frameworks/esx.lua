@@ -36,4 +36,11 @@ function esxFramework:getPlayerStress()
     return self.values.stress
 end
 
+function esxFramework:getPlayerOxygen()
+    return self.values.oxygen
+end
+
+function esxFramework:getPlayerStamina()
+    return self.values.stamina
+end
 return esxFramework

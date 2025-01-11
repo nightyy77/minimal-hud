@@ -55,7 +55,7 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         const angle = -120 + (i * 240) / (gears - 1);
         return (
           <g key={`gear-${i}`}>
-            <path d={createGearLine(0, 0, 36, 43, angle)} stroke="#ffffff" strokeWidth="3" opacity="100" strokeLinecap="round" />
+            <path d={createGearLine(0, 0, 37, 43, angle)} stroke="#ced4da" strokeWidth="2.5" opacity="100" strokeLinecap="round" />
           </g>
         );
       }),
@@ -75,12 +75,12 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
           </filter>
         </defs>
         <g filter="url(#glow)">
-          <path d={createArc(0, 0, 40, -120, 120)} fill="none" stroke="#11181a27" strokeWidth="5" />
+          <path d={createArc(0, 0, 40, -120, 120)} fill="none" stroke="#11181a27" strokeWidth="4" />
           <path
             ref={activeArcRef}
             d={createArc(0, 0, 40, -120, 120)}
             fill="none"
-            strokeWidth="5"
+            strokeWidth="4"
             className="transition-all duration-300 ease-in-out"
             style={{
               stroke: percentage >= 90 ? "#fe2436" : percentage >= 85 ? "#FB8607" : "#06CE6B",

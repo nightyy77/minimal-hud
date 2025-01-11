@@ -14,15 +14,34 @@ function qbFramework.new()
         self.values.stress = stress
     end)
 
+    RegisterNetEvent("hud:client:UpdateOxygen", function(oxygen)
+		self.values.oxygen = oxygen
+	end)
+
+	RegisterNetEvent("hud:client:UpdateStamina", function(stamina)
+		self.values.stamina = stamina
+	end)
+
     return self
 end
+
+
 
 function qbFramework:getPlayerHunger()
     return self.values.hunger or "disabled"
 end
 
+
 function qbFramework:getPlayerThirst()
     return self.values.thirst or "disabled"
+end
+
+function qbFramework:getPlayerOxygen()
+    return self.values.oxygen or "disabled"
+end
+
+function qbFramework:getPlayerStamina()
+    return self.values.stamina or "disabled"
 end
 
 function qbFramework:getPlayerStress()

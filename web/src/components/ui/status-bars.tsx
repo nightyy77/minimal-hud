@@ -7,14 +7,15 @@ interface StatBarProps extends React.HTMLAttributes<HTMLDivElement> {
   maxValue?: number;
   color?: string;
   vertical?: boolean;
+  iconColor?: string;
 }
 
-export const StatBar = ({ Icon = TiHeartFullOutline, value = 20, maxValue = 100, color = "#F2F2F2", vertical = false, ...props }: StatBarProps) => {
+export const StatBar = ({ Icon = TiHeartFullOutline, value = 20, maxValue = 100, color = "#F2F2F2", vertical = false,  iconColor, ...props }: StatBarProps) => {
   const percentage = useMemo(() => (value / maxValue) * 100, [value, maxValue]);
-
+  const finalIconColor = value === 0 ? "text-red-500" : iconColor || "text-y_white";
   return (
     <div className={`flex ${vertical ? "h-[3dvh]" : "w-full"} items-center gap-1 4k:gap-2`} {...props}>
-      {!vertical && <Icon className="text-y_white text-[1vw] " />}
+      {!vertical && <Icon className="${finalIconColor} text-[1vw] " />}
       {!vertical && (
         <p
           className="text-[0.6vw] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] w-[20px] 4k:text-base 2k:text-sm text-center font-bold"
@@ -36,7 +37,7 @@ export const StatBar = ({ Icon = TiHeartFullOutline, value = 20, maxValue = 100,
           }}
         />
       </div>
-      {vertical && <Icon className="text-y_white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] text-[0.8vw]" />}
+      {vertical && <Icon className="${finalIconColor} drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] text-[0.8vw]" />}
     </div>
   );
 };

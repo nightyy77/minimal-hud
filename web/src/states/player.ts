@@ -6,6 +6,8 @@ export interface PlayerStateInterface {
   hunger: number;
   thirst: number;
   stress: number | string;
+  oxygen: number;
+  stamina: number;
   streetLabel: string;
   areaLabel: string;
   heading: string;
@@ -20,6 +22,8 @@ const mockPlayerState: PlayerStateInterface = {
   armor: 100,
   hunger: 50,
   thirst: 100,
+  oxygen: 100,
+  stamina: 100,
   stress: 0,
   voice : 50,
   streetLabel: "Downtown Vinewood",

@@ -84,6 +84,9 @@ function PlayerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
             local pedHunger = framework and framework:getPlayerHunger() or nil
             local pedThirst = framework and framework:getPlayerThirst() or nil
             local pedStress = framework and framework:getPlayerStress() or nil
+            local pedOxygen = math.floor(GetPlayerUnderwaterTimeRemaining(PlayerId()) * 10) or nil
+			local pedStamina = math.floor(100 - GetPlayerSprintStaminaRemaining(PlayerId())) or nil
+
 
             local isInVehicle = IsPedInAnyVehicle(ped, false)
             local isSeatbeltOn = config.useBuiltInSeatbeltLogic and seatbeltLogic.seatbeltState or sharedFunctions.isSeatbeltOn()
@@ -102,6 +105,8 @@ function PlayerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
                 hunger = pedHunger,
                 thirst = pedThirst,
                 stress = pedStress,
+                oxygen = pedOxygen,
+				stamina = pedStamina,
                 streetLabel = currentStreet,
                 areaLabel = zone,
                 heading = compass,
