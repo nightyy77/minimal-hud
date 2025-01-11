@@ -1,4 +1,5 @@
---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-global
+
 fx_version("cerulean")
 game("gta5")
 
@@ -8,35 +9,26 @@ version("1.1.0")
 repository("https://github.com/vipexv/minimal-hud")
 
 shared_scripts({
-	"require.lua",
-})
-
-client_scripts({
-	"client/main.lua",
-	"client/nuicb.lua",
-	"client/commands.lua",
-})
-
-server_scripts({
-	"server/main.lua",
+    "require.lua",
+    "init.lua",
 })
 
 ui_page("dist/index.html")
 -- ui_page("http://localhost:5173/")
 
 files({
-	"dist/index.html",
-	"dist/assets/*.js",
-	"dist/assets/*.css",
-	"dist/**/*.woff2",
-	"config/shared.lua",
-	"config/functions.lua",
-	"modules/interface/client.lua",
-	"modules/utils/shared.lua",
-	"modules/seatbelt/client.lua",
-	"modules/frameworks/**/*.lua",
-	"modules/threads/client/**/*.lua",
-	"data/mapData.lua",
+    "dist/index.html",
+    "dist/assets/*.js",
+    "dist/assets/*.css",
+    "dist/**/*.woff2",
+    "config/*.lua",
+    "config/functions.lua",
+    "modules/interface/client.lua",
+    "modules/utility/shared/logger.lua",
+    "modules/utility/shared/main.lua",
+    "modules/seatbelt/client.lua",
+    "modules/frameworks/**/*.lua",
+    "modules/threads/client/**/*.lua",
 })
 
 lua54("yes")

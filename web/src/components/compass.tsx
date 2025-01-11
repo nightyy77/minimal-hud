@@ -9,31 +9,18 @@ const Compass = () => {
   const compassLocation = useCompassLocation();
 
   if (!playerState.isInVehicle) {
-    return null; 
+    return null;
   }
   return (
-    <div
-      className={
-        compassLocation === "bottom"
-          ? "flex absolute bottom-1 w-full h-fit items-center justify-center "
-          : "flex w-full h-[10dvh] items-center justify-center"
-      }
-    >
+    <div className={compassLocation === "bottom" ? "flex absolute bottom-1 w-full h-fit items-center justify-center " : "flex w-full h-[10dvh] items-center justify-center"}>
       <div className={"flex gap-3 items-center justify-center w-[50%]"}>
         <IconLabelBox label={playerState.heading} Icon={FaCompass} />
-        <IconLabelBox
-          label={playerState.streetLabel}
-          className="min-w-[20%]"
-          Icon={FaLocationDot}
-        />
-        <IconLabelBox
-          className="px-3"
-          label={playerState.areaLabel}
-          Icon={FaMap}
-        />
+        <IconLabelBox label={playerState.streetLabel} className="min-w-[20%]" Icon={FaLocationDot} />
+        <IconLabelBox className="px-3" label={playerState.areaLabel} Icon={FaMap} />
       </div>
     </div>
   );
 };
 
 export default React.memo(Compass);
+
