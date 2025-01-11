@@ -9,8 +9,8 @@ function oxFramework.new()
         self.values.hunger = 100 - data.hunger
         self.values.thirst = 100 - data.thirst
         self.values.stress = data.stress
-        self.values.stamina = 100 - data.stamina
-        self.values.oxygen = 100 - data.oxygen
+        self.values.stamina = 100 - (data.stamina or 0)
+        self.values.oxygen = 100 - (data.oxygen or 0)
     end)
 
     return self
@@ -27,8 +27,6 @@ end
 function oxFramework:getPlayerStress()
     return self.values.stress
 end
-
-
 
 function oxFramework:getPlayerOxygen()
     return self.values.oxygen
