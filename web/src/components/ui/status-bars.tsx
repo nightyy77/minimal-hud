@@ -31,6 +31,8 @@ export const StatBar = ({ Icon = TiHeartFullOutline, value = 20, maxValue = 100,
           style={{
             backgroundColor: color,
             [vertical ? "height" : "width"]: `${percentage}%`,
+            borderRadius: percentage < 100 ? "50px" : "9999px",
+            overflow: "hidden",
           }}
         />
       </div>
