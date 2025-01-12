@@ -8,7 +8,7 @@ on:
 
 jobs:
     create-release:
-        name: Build and Create Tagged Release
+        name: Build and Attach to Release
         runs-on: ubuntu-latest
         steps:
             - name: Install archive tools
@@ -34,11 +34,6 @@ jobs:
               env:
                   CI: false
 
-            - name: Update tag ref
-              uses: EndBug/latest-tag@latest
-              with:
-                  ref: ${{ github.ref_name }}
-
             - name: Bundle files
               run: |
                   ls
@@ -49,15 +44,12 @@ jobs:
                   cp -r ./dist ./temp/minimal-hud/
                   cd ./temp && zip -r ../minimal-hud.zip ./minimal-hud
 
-            - name: Create Release
-              uses: "marvinpinto/action-automatic-releases@v1.2.1"
+            - name: Upload to Existing Release
+              uses: actions/upload-release-asset@v1
               id: auto_release
               with:
-                  repo_token: "${{ secrets.GITHUB_TOKEN }}"
-                  title: ${{ env.RELEASE_VERSION }}
-                  prerelease: false
-                  files: minimal-hud.zip
+                  upload_url: ${{ github.event.release.upload_url }}
+                  asset_path: ./minimal-hud.zip
+                  asset_name: minimal-hud.zip
+                  asset_content_type: application/zip
 
-              env:
-                  CI: false
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
