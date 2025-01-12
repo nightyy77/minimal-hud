@@ -52,17 +52,6 @@ bun install
 bun run dev
 ```
 
-## Credits
-
-This software uses the following open source packages:
-
-- [Node.js](https://nodejs.org/)
-- [Preact](https://preactjs.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [react-icons](https://react-icons.github.io/react-icons/)
-- [Jotai](https://jotai.org/)
-- [Vite](https://vitejs.dev/)
-
 ## Contributing
 
 I welcome contributions to improve minimal-hud, it would not be possible to maintain without the community. If you'd like to help enhance the resource, feel free to use discussions, open issues, or submit pull requests.  
@@ -73,6 +62,17 @@ When contributing, please keep the following in mind:
 - Ensure any new features include appropriate tests where applicable.
 
 I appreciate your support in keeping this resource free and accessible for the FiveM community!
+
+## Credits
+
+This software uses the following open source packages:
+
+- [Node.js](https://nodejs.org/)
+- [Preact](https://preactjs.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [Jotai](https://jotai.org/)
+- [Vite](https://vitejs.dev/)
 
 ## Support
 
