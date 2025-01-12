@@ -27,6 +27,8 @@
 
 <p align="center">
   <a href="#how-to-use">How To Use</a> •
+  <a href="#development-setup">Development Setup</a> •
+  <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
   <a href="https://github.com/ThatMadCap/minimal-hud-restyle/blob/main/LICENSE">License</a>
