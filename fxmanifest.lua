@@ -6,7 +6,7 @@ game("gta5")
 name("minimal-hud")
 author("vipex <discord:vipex.v>")
 version("1.1.0")
-repository("https://github.com/vipexv/minimal-hud")
+repository("https://github.com/ThatMadCap/minimal-hud")
 
 shared_scripts({
     "require.lua",
