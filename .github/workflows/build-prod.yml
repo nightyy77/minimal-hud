@@ -9,7 +9,7 @@ on:
 jobs:
     create-release:
         name: Build and Create Tagged Release
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04
         steps:
             - name: Install archive tools
               run: sudo apt install zip
