@@ -3,9 +3,16 @@
   <br>
 </h1>
 
-![hud-1](https://github.com/user-attachments/assets/0b67e60e-0a28-431e-9159-e43479075925)
-![hud-2](https://github.com/user-attachments/assets/9ed4aee5-a32c-4b7e-acbf-ecf3476789bc)
-![hud-3](https://github.com/user-attachments/assets/6acc34ac-4906-41a0-8212-e32e2ef3633c)
+![minimal-hud](https://github.com/user-attachments/assets/f09a7020-1128-4a19-8913-39b838371c40)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/50a2c3e2-9c73-4176-a92b-4a86a8519ac7" width="19%" />
+  <img src="https://github.com/user-attachments/assets/d362bb07-c78f-4e54-aff7-97df5175704d" width="19%" />
+  <img src="https://github.com/user-attachments/assets/e9fc07c4-8908-4ea0-833e-de494390215c" width="19%" />
+  <img src="https://github.com/user-attachments/assets/21feda9c-e357-4016-9566-2d9d5cdedae5" width="19%" />
+  <img src="https://github.com/user-attachments/assets/e342ac4e-0d0a-4692-be75-433d269ae624" width="19%" />
+</p>
+
 
 <h4 align="center">A minimal hud built for FiveM.</h4>
 
