@@ -3,7 +3,7 @@ local server_utils = {}
 server_utils.versionCheck = function(repository)
     local resource = GetInvokingResource() or GetCurrentResourceName()
 
-    local currentVersion = "v1.1.0"
+    local currentVersion = "v1.1.1"
 
     if currentVersion then
         currentVersion = currentVersion:match("%d+%.%d+%.%d+")
