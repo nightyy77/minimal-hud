@@ -13,8 +13,17 @@
   <img src="https://github.com/user-attachments/assets/e342ac4e-0d0a-4692-be75-433d269ae624" width="19%" />
 </p>
 
-
 <h4 align="center">A minimal hud built for FiveM.</h4>
+
+<p align="center">
+  <a href="https://badge.fury.io/js/electron-markdownify">
+    <img src="https://img.shields.io/github/downloads/ThatMadCap/minimal-hud/total?logo=github"
+         alt="Repo Downloads">
+  </a>
+  <a> <img src="https://img.shields.io/github/contributors/ThatMadCap/minimal-hud?logo=github"> </a>
+  <a> <img src="https://img.shields.io/github/v/release/ThatMadCap/minimal-hud?logo=github"> </a>
+  <a> <img src="https://img.shields.io/github/downloads/ThatMadCap/minimal-hud/latest/total?logo=github"> </a>
+</p>
 
 <p align="center">
   <a href="#how-to-use">How To Use</a> •
