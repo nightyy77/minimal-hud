@@ -2,7 +2,7 @@ import { useNuiEvent } from "@/hooks/useNuiEvent";
 import { MinimapStateInterface, useMinimapStateStore } from "@/states/minimap";
 import { PlayerStateInterface, usePlayerStateStore } from "@/states/player";
 import React, { useCallback, useMemo } from "preact/compat";
-import { GiAbdominalArmor } from "react-icons/gi";
+import { BiSolidShieldAlt2 } from "react-icons/bi";
 import { FaBottleWater, FaBrain, FaMicrophone, FaPersonSwimming, FaPersonRunning } from "react-icons/fa6";
 import { IoFastFood } from "react-icons/io5";
 import { TiHeartFullOutline } from "react-icons/ti";
@@ -47,17 +47,17 @@ const PlayerStatus = () => {
         <div
           className="w-full h-full relative"
           
-           // Uncomment this if you reall want that skewed look.
-          style={{
-            transform: "perspective(1000px) rotateY(12deg)",
-            backfaceVisibility: "hidden",
-            transformStyle: "preserve-3d",
-            willChange: "transform",
-          }}
+          // Uncomment this if you really want that skewed look.
+          // style={{
+          //   transform: "perspective(1000px) rotateY(12deg)",
+          //   backfaceVisibility: "hidden",
+          //   transformStyle: "preserve-3d",
+          //   willChange: "transform",
+          // }}
         >
           <div className={"absolute -bottom-12 w-full flex gap-3 items-center justify-start"}>
             <div className={"flex flex-col w-2/4 items-center justify-center gap-1"}>
-              <StatBarSegmented Icon={GiAbdominalArmor} value={playerState.armor} color="#2B78FC" />
+              <StatBarSegmented Icon={BiSolidShieldAlt2} value={playerState.armor} color="#2B78FC" />
               <StatBar Icon={TiHeartFullOutline} value={playerState.health} color="#06CE6B" maxValue={100} />
             </div>
             {isUsingFramework && (
