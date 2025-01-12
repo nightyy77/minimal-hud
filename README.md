@@ -27,8 +27,7 @@
 
 ## How to Use
 
-This comes pre-built. If you wish to use it in your server, simply:
-- Download, add to your resources, ensure in your `server.cfg`.
+- [Download the latest release](https://github.com/thatmadcap/minimal-hud/releases/latest), add to your resources, ensure in your `server.cfg`.
 - Don't forget to set a framework in `config/shared.lua` and any custom logic into `config/functions.lua`.
 
 ## Development Setup
