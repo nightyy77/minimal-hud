@@ -3,8 +3,7 @@ import { MinimapStateInterface, useMinimapStateStore } from "@/states/minimap";
 import { PlayerStateInterface, usePlayerStateStore } from "@/states/player";
 import React, { useCallback, useMemo } from "preact/compat";
 import { BiSolidShieldAlt2 } from "react-icons/bi";
-import { FaBottleWater, FaBrain, FaMicrophone, FaPersonSwimming, FaPersonRunning } from "react-icons/fa6";
-import { IoFastFood } from "react-icons/io5";
+import { FaGlassWater, FaBurger, FaBrain, FaMicrophone, FaPersonSwimming, FaPersonRunning } from "react-icons/fa6";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { StatBar, StatBarSegmented } from "./ui/status-bars";
 
@@ -65,8 +64,8 @@ const PlayerStatus = () => {
                 <div className="w-2/4 flex gap-3">
                   {typeof playerState.mic === "boolean" && playerState.mic === true ? <StatBar Icon={FaMicrophone} value={playerState.mic ? 100 : 0} color="#FFFF00" vertical /> : typeof playerState.voice === "number" ? <StatBar Icon={FaMicrophone} value={playerState.voice} color="#ffffff" vertical /> : null}
 
-                  <StatBar Icon={IoFastFood} value={playerState.hunger} color="#FB8607" vertical />
-                  <StatBar Icon={FaBottleWater} value={playerState.thirst} color="#2B78FC" vertical />
+                  <StatBar Icon={FaBurger} value={playerState.hunger} color="#FB8607" vertical />
+                  <StatBar Icon={FaGlassWater} value={playerState.thirst} color="#2B78FC" vertical />
                   {playerState.oxygen < 100 && (
                   <StatBar
                     Icon={FaPersonSwimming}
