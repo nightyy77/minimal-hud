@@ -47,13 +47,13 @@ const PlayerStatus = () => {
         <div
           className="w-full h-full relative"
           
-           // Uncomment this if you reall want that skewed look.
-          style={{
-            transform: "perspective(1000px) rotateY(12deg)",
-            backfaceVisibility: "hidden",
-            transformStyle: "preserve-3d",
-            willChange: "transform",
-          }}
+          // Uncomment this if you really want that skewed look.
+          // style={{
+          //   transform: "perspective(1000px) rotateY(12deg)",
+          //   backfaceVisibility: "hidden",
+          //   transformStyle: "preserve-3d",
+          //   willChange: "transform",
+          // }}
         >
           <div className={"absolute -bottom-12 w-full flex gap-3 items-center justify-start"}>
             <div className={"flex flex-col w-2/4 items-center justify-center gap-1"}>
