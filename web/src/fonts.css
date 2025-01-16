@@ -53,3 +53,15 @@
     src: url("/fonts/Geist-UltraLight.woff2");
     font-weight: 100;
 }
+
+@font-face {
+    font-family: 'DigitalPlaySt';
+    src: url('/fonts/DigitalPlaySt-dGB6.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.digital-font {
+    font-family: 'DigitalPlaySt', sans-serif;
+    letter-spacing: 3px;
+}

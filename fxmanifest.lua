@@ -21,6 +21,7 @@ files({
     "dist/assets/*.js",
     "dist/assets/*.css",
     "dist/**/*.woff2",
+    "dist/**/*.ttf",
     "config/*.lua",
     "config/functions.lua",
     "modules/interface/client.lua",

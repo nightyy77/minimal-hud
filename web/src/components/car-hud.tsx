@@ -1,10 +1,14 @@
+import React, { useCallback, useMemo } from "react";
 import { useNuiEvent } from "@/hooks/useNuiEvent";
 import { usePlayerState } from "@/states/player";
 import { useVehicleStateStore, type VehicleStateInterface } from "@/states/vehicle";
 import { debug } from "@/utils/debug";
-import React, { useCallback, useMemo } from "react";
 import Speedometer from "./ui/speedometer";
 import { TextProgressBar } from "./ui/text-progress-bar";
+import { FaGasPump} from 'react-icons/fa';  // Import React Icons
+import { PiSeatbeltFill } from "react-icons/pi";
+import { SiBoosty } from "react-icons/si";
+import { PiEngineFill } from "react-icons/pi";
 
 const CarHud = React.memo(function CarHud() {
   const [vehicleState, setVehicleState] = useVehicleStateStore();
@@ -24,6 +28,17 @@ const CarHud = React.memo(function CarHud() {
 
   useNuiEvent<VehicleStateInterface>("state::vehicle::set", handleVehicleStateUpdate);
 
+  const renderProgressBars = () => {
+    return (
+      <>
+        <TextProgressBar icon={<FaGasPump />} value={vehicleState.fuel} />
+        <TextProgressBar icon={<SiBoosty />} value={vehicleState.nos} />
+        <TextProgressBar icon={<PiEngineFill />} value={vehicleState.engineState ? 100 : 0} />
+        <TextProgressBar icon={<PiSeatbeltFill/>} value={playerState.isSeatbeltOn ? 100 : 0} />
+      </>
+    );
+  };
+
   const content = useMemo(() => {
     if (!playerState.isInVehicle) {
       debug("(CarHud) Returning with no children since the player is not in a vehicle.");
@@ -42,10 +57,7 @@ const CarHud = React.memo(function CarHud() {
       >
         <Speedometer rpm={vehicleState.rpm} speed={vehicleState.speed} gears={vehicleState.gears} engineHealth={vehicleState.engineHealth} maxRpm={100} />
         <div className={"flex gap-2 items-center mr-2 4k:-mt-14"}>
-          <TextProgressBar label="FUEL" value={vehicleState.fuel} />
-          <TextProgressBar label="NOS" value={vehicleState.nos} />
-          <TextProgressBar label="ENG" value={vehicleState.engineState ? 100 : 0} />
-          <TextProgressBar label="BELT" value={playerState.isSeatbeltOn ? 100 : 0} />
+          {renderProgressBars()}
         </div>
       </div>
     );

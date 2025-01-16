@@ -57,9 +57,9 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         return (
           <g key={`gear-${i}`}>
             <path
-              d={createGearLine(0, 0, 37, 43, angle)}
+              d={createGearLine(0, 0, 38, 42, angle)}
               stroke="#dee2e6"
-              strokeWidth="2.5"
+              strokeWidth="2.1"
               opacity="100"
               strokeLinecap="round"
             />
@@ -81,7 +81,7 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
   );
 
   return (
-    <div className="w-60 2k:w-[15dvw] 2k:h-[21dvh] 4k:w-[10dvw] 4k:h-[20dvh] h-64 relative flex items-center justify-center -mb-20 z-0">
+    <div className="position-fixed w-[12vw] h-[12vw] flex items-center justify-center z-0" style={{ top: '10%', transform: 'translateY(28%)' }}>
       <svg viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet" className="w-full h-full">
         <defs>
           <filter id="glow">
@@ -105,15 +105,17 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
             }}
           />
         </g>
+
         {gearLines}
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center flex flex-col">
-          <span className="text-[2vw] font-bold text-white tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">{speed}</span>
+          <span className="digital-font text-[2.2vw]  font-bold text-white tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">{speed}</span>
           <span className="text-[1vw] -mt-1 font-semibold text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">MPH</span>
           {engineHealth < 30 && (
             <div className={"flex items-center justify-center *:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] *:size-[0.9vw] *:text-red-600 mt-1"}>
               <PiEngineFill />
+
             </div>
           )}
         </div>
