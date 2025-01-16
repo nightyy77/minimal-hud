@@ -85,7 +85,7 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
       <svg viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet" className="w-full h-full">
         <defs>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
@@ -110,8 +110,8 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center flex flex-col">
-          <span className="digital-font text-[2.2vw]  font-bold text-white tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">{speed}</span>
-          <span className="text-[1vw] -mt-1 font-semibold text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">MPH</span>
+        <span className="digital-font text-[2.1vw] font-bold text-white tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-2"> {speed} </span>
+          <span className="text-[1vw] -mt-1 font-bold text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">MPH</span>
           {engineHealth < 30 && (
             <div className={"flex items-center justify-center *:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] *:size-[0.9vw] *:text-red-600 mt-1"}>
               <PiEngineFill />
