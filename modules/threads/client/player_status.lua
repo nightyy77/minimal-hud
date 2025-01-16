@@ -87,18 +87,17 @@ function PlayerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
             local pedOxygen = math.floor(GetPlayerUnderwaterTimeRemaining(PlayerId()) * 10) or nil
 			local pedStamina = math.floor(100 - GetPlayerSprintStaminaRemaining(PlayerId())) or nil
 
+
             local isInVehicle = IsPedInAnyVehicle(ped, false)
             local isSeatbeltOn = config.useBuiltInSeatbeltLogic and seatbeltLogic.seatbeltState or sharedFunctions.isSeatbeltOn()
-            if isInVehicle then
-                if not self:getIsVehicleThreadRunning() and vehicleStatusThread then
-                    vehicleStatusThread:start()
-                    DisplayRadar(true)
-                    logger.verbose("(playerStatus) (vehicleStatusThread) Vehicle status thread started.")
-                end
-                DisplayRadar(isInVehicle)
-            else
-                DisplayRadar(false)
+
+            if isInVehicle and not self:getIsVehicleThreadRunning() and vehicleStatusThread then
+                vehicleStatusThread:start()
+                DisplayRadar(true)
+                logger.verbose("(playerStatus) (vehicleStatusThread) Vehicle status thread started.")
             end
+
+            DisplayRadar(isInVehicle)
 
             local player_data = {
                 health = pedHealth,
