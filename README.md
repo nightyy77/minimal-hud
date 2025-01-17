@@ -31,7 +31,7 @@
   <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
-  <a href="https://github.com/ThatMadCap/minimal-hud-restyle/blob/main/LICENSE">License</a>
+  <a href="https://github.com/ThatMadCap/minimal-hud/blob/main/LICENSE">License</a>
 </p>
 
 <p align="center">The <a href="https://github.com/vipexv/minimal-hud">original repository</a> has now been archived. This fork will continue to be maintained for the FiveM community.</p>
@@ -48,10 +48,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [B
 
 ```bash
 # Clone this repository
-git clone https://github.com/ThatMadCap/minimal-hud-restyle.git
+git clone https://github.com/ThatMadCap/minimal-hud.git
 
 # Go into the repository
-cd minimal-hud-restyle
+cd minimal-hud
 
 # Navigate to the web folder
 cd web
