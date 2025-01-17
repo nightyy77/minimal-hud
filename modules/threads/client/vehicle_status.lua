@@ -43,21 +43,34 @@ function VehicleStatusThread:start()
 
         while IsPedInAnyVehicle(ped, false) do
             local vehicle = GetVehiclePedIsIn(ped, false)
+            local vehicleType = GetVehicleTypeRaw(vehicle)
             local engineHealth = convertEngineHealthToPercentage(GetVehicleEngineHealth(vehicle))
             local speed = math.floor(GetEntitySpeed(vehicle) * 2.236936)
-            local rpm = convertRpmToPercentage(GetVehicleCurrentRpm(vehicle))
+
+            local rpm
+            if vehicleType == 8 then -- Helicopters: Simulate RPM based on speed
+                rpm = math.min(speed / 150, 1) * 100
+            else -- All other vehicles: Use actual RPM
+                rpm = convertRpmToPercentage(GetVehicleCurrentRpm(vehicle))
+            end
+
             local noslevel = GetNosLevel(vehicle)
             local fuelValue = math.max(0, math.min(functions.getVehicleFuel(vehicle), 100))
             local engineState = GetIsVehicleEngineRunning(vehicle)
             local fuel = math.floor(fuelValue)
-            local gears = GetVehicleHighGear(vehicle)
+            local currentGears = GetVehicleHighGear(vehicle)
+			local newGears = currentGears
+
+			if currentGears == 1 then
+				newGears = 0
+			end
 
             interface:message("state::vehicle::set", {
                 speed = speed,
                 rpm = rpm,
                 engineHealth = engineHealth,
                 engineState = engineState,
-                gears = gears,
+                gears = newGears,
                 fuel = fuel,
                 nos = noslevel,
             })
