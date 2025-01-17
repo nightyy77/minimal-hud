@@ -12,8 +12,6 @@
   <img src="https://github.com/user-attachments/assets/f4d4a040-3531-4d0f-bf67-43dc9df781fc" width="19%" />
   <img src="https://github.com/user-attachments/assets/d54c3376-ccf6-4e9a-9f3a-4760c8fd1255" width="19%" />
 </p>
-![Screenshot_1](https://github.com/user-attachments/assets/d54c3376-ccf6-4e9a-9f3a-4760c8fd1255)
-![Screenshot_2](https://github.com/user-attachments/assets/f4d4a040-3531-4d0f-bf67-43dc9df781fc)
 
 <h4 align="center">A minimal hud built for FiveM.</h4>
 
