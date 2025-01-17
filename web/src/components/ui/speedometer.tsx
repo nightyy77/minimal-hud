@@ -81,11 +81,11 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
   );
 
   return (
-    <div className="position-fixed w-[12vw] h-[12vw] flex items-center justify-center z-0" style={{ top: '10%', transform: 'translateY(28%)' }}>
+    <div className="w-60 2k:w-[15dvw] 2k:h-[21dvh] 4k:w-[10dvw] 4k:h-[20dvh] h-64 relative flex items-center justify-center -mb-20 z-0">
       <svg viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet" className="w-full h-full">
         <defs>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
