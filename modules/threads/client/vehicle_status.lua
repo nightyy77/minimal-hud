@@ -43,9 +43,17 @@ function VehicleStatusThread:start()
 
         while IsPedInAnyVehicle(ped, false) do
             local vehicle = GetVehiclePedIsIn(ped, false)
+            local vehicleType = GetVehicleTypeRaw(vehicle)
             local engineHealth = convertEngineHealthToPercentage(GetVehicleEngineHealth(vehicle))
             local speed = math.floor(GetEntitySpeed(vehicle) * 2.236936)
-            local rpm = convertRpmToPercentage(GetVehicleCurrentRpm(vehicle))
+
+            local rpm
+            if vehicleType == 8 then -- Helicopters: Simulate RPM based on speed
+                rpm = math.min(speed / 150, 1) * 100
+            else -- All other vehicles: Use actual RPM
+                rpm = convertRpmToPercentage(GetVehicleCurrentRpm(vehicle))
+            end
+
             local noslevel = GetNosLevel(vehicle)
             local fuelValue = math.max(0, math.min(functions.getVehicleFuel(vehicle), 100))
             local engineState = GetIsVehicleEngineRunning(vehicle)
