@@ -3,15 +3,17 @@
   <br>
 </h1>
 
-![minimal-hud](https://github.com/user-attachments/assets/f09a7020-1128-4a19-8913-39b838371c40)
+![minimal-hud](https://github.com/user-attachments/assets/02225904-50ac-4258-b08c-ec54495b875e)
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/50a2c3e2-9c73-4176-a92b-4a86a8519ac7" width="19%" />
   <img src="https://github.com/user-attachments/assets/d362bb07-c78f-4e54-aff7-97df5175704d" width="19%" />
   <img src="https://github.com/user-attachments/assets/e9fc07c4-8908-4ea0-833e-de494390215c" width="19%" />
-  <img src="https://github.com/user-attachments/assets/21feda9c-e357-4016-9566-2d9d5cdedae5" width="19%" />
-  <img src="https://github.com/user-attachments/assets/e342ac4e-0d0a-4692-be75-433d269ae624" width="19%" />
+  <img src="https://github.com/user-attachments/assets/f4d4a040-3531-4d0f-bf67-43dc9df781fc" width="19%" />
+  <img src="https://github.com/user-attachments/assets/d54c3376-ccf6-4e9a-9f3a-4760c8fd1255" width="19%" />
 </p>
+![Screenshot_1](https://github.com/user-attachments/assets/d54c3376-ccf6-4e9a-9f3a-4760c8fd1255)
+![Screenshot_2](https://github.com/user-attachments/assets/f4d4a040-3531-4d0f-bf67-43dc9df781fc)
 
 <h4 align="center">A minimal hud built for FiveM.</h4>
 
