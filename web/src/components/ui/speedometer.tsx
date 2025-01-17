@@ -109,9 +109,9 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         {gearLines}
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center flex flex-col">
+        <div className="text-center flex flex-col mb-2">
         <span className="text-[2vw] font-bold text-white tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-2"> {speed} </span>
-          <span className="text-[1vw] -mt-1 font-bold text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">MPH</span>
+          <span className="text-[1vw] -mt-1 font-semibold text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-2">MPH</span>
           {engineHealth < 30 && (
             <div className={"flex items-center justify-center *:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] *:size-[0.9vw] *:text-red-600 mt-1"}>
               <PiEngineFill />
