@@ -5,7 +5,7 @@ game("gta5")
 
 name("minimal-hud")
 author("vipex <discord:vipex.v>")
-version("2.0.0")
+version("2.1.0")
 repository("https://github.com/ThatMadCap/minimal-hud")
 
 shared_scripts({
