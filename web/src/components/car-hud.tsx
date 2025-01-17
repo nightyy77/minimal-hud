@@ -5,10 +5,8 @@ import { useVehicleStateStore, type VehicleStateInterface } from "@/states/vehic
 import { debug } from "@/utils/debug";
 import Speedometer from "./ui/speedometer";
 import { TextProgressBar } from "./ui/text-progress-bar";
-import { FaGasPump} from 'react-icons/fa';  // Import React Icons
-import { PiSeatbeltFill } from "react-icons/pi";
-import { SiBoosty } from "react-icons/si";
-import { PiEngineFill } from "react-icons/pi";
+import { FaGasPump, FaFireAlt } from 'react-icons/fa';
+import { PiSeatbeltFill, PiEngineFill } from "react-icons/pi";
 
 const CarHud = React.memo(function CarHud() {
   const [vehicleState, setVehicleState] = useVehicleStateStore();
@@ -31,10 +29,10 @@ const CarHud = React.memo(function CarHud() {
   const renderProgressBars = () => {
     return (
       <>
-        <TextProgressBar icon={<FaGasPump />} value={vehicleState.fuel} />
-        <TextProgressBar icon={<SiBoosty />} value={vehicleState.nos} />
+        <TextProgressBar icon={<FaGasPump />} value={vehicleState.fuel} iconSize="1.1vw" />
+        <TextProgressBar icon={<FaFireAlt />} value={vehicleState.nos} />
         <TextProgressBar icon={<PiEngineFill />} value={vehicleState.engineState ? 100 : 0} />
-        <TextProgressBar icon={<PiSeatbeltFill/>} value={playerState.isSeatbeltOn ? 100 : 0} />
+        <TextProgressBar icon={<PiSeatbeltFill />} value={playerState.isSeatbeltOn ? 100 : 0} iconSize="1.25vw" />
       </>
     );
   };
@@ -48,15 +46,16 @@ const CarHud = React.memo(function CarHud() {
     return (
       <div
         className={"absolute bottom-8 right-16 w-fit h-fit mb-4 flex-col items-center flex justify-center gap-2"}
-        style={{
-          transform: "perspective(1000px) rotateY(-12deg)",
-          backfaceVisibility: "hidden",
-          transformStyle: "preserve-3d",
-          willChange: "transform",
-        }}
+        // Uncomment this if you really want that skewed look.
+        // style={{
+        //   transform: "perspective(1000px) rotateY(-12deg)",
+        //   backfaceVisibility: "hidden",
+        //   transformStyle: "preserve-3d",
+        //   willChange: "transform",
+        // }}
       >
         <Speedometer rpm={vehicleState.rpm} speed={vehicleState.speed} gears={vehicleState.gears} engineHealth={vehicleState.engineHealth} maxRpm={100} />
-        <div className={"flex gap-2 items-center mr-2 4k:-mt-14"}>
+        <div className={"flex gap-2 items-center 4k:-mt-14 mt-2.5 ml-2"}>
           {renderProgressBars()}
         </div>
       </div>

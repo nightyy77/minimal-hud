@@ -18,11 +18,12 @@ export const TextProgressBar = ({ value = 50, icon, color = "#06CE6B", iconSize 
   return (
     <div className={"flex flex-col items-center justify-center w-[2.1dvw] h-[4dvh]"} {...props}>
       <div
-        className="text-[1vw]"
+        className="flex items-center justify-center text-[1vw]"
         style={{
+          height: iconSpacing,
           fontSize: iconSize,
           marginBottom: iconSpacing,
-          color: getColor,
+          color: 'rgba(255, 255, 255, 0.87)',
         }}
       >
         {icon}
