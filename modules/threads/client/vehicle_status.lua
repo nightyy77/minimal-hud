@@ -50,14 +50,19 @@ function VehicleStatusThread:start()
             local fuelValue = math.max(0, math.min(functions.getVehicleFuel(vehicle), 100))
             local engineState = GetIsVehicleEngineRunning(vehicle)
             local fuel = math.floor(fuelValue)
-            local gears = GetVehicleHighGear(vehicle)
+            local currentGears = GetVehicleHighGear(vehicle)
+			local newGears = currentGears
+
+			if currentGears == 1 then
+				newGears = 0
+			end
 
             interface:message("state::vehicle::set", {
                 speed = speed,
                 rpm = rpm,
                 engineHealth = engineHealth,
                 engineState = engineState,
-                gears = gears,
+                gears = newGears,
                 fuel = fuel,
                 nos = noslevel,
             })
