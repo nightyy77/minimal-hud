@@ -8,6 +8,7 @@ export interface VehicleStateInterface {
     gears: number;
     fuel: number;
     nos: number;
+    speedUnit: "MPH" | "KPH";
 }
 
 const mockVehicleState: VehicleStateInterface = {
@@ -18,6 +19,7 @@ const mockVehicleState: VehicleStateInterface = {
     gears: 6,
     fuel: 50,
     nos: 40,
+    speedUnit: "MPH"
 };
 
 const vehicleState = atom<VehicleStateInterface>(mockVehicleState);

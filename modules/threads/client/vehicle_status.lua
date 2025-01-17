@@ -2,6 +2,7 @@ local interface = require("modules.interface.client")
 local utility = require("modules.utility.shared.main")
 local logger = require("modules.utility.shared.logger")
 local functions = require("config.functions")
+local config = require("config.shared")
 
 local VehicleStatusThread = {}
 VehicleStatusThread.__index = VehicleStatusThread
@@ -45,7 +46,27 @@ function VehicleStatusThread:start()
             local vehicle = GetVehiclePedIsIn(ped, false)
             local vehicleType = GetVehicleTypeRaw(vehicle)
             local engineHealth = convertEngineHealthToPercentage(GetVehicleEngineHealth(vehicle))
-            local speed = math.floor(GetEntitySpeed(vehicle) * 2.236936)
+            local noslevel = GetNosLevel(vehicle)
+            local fuelValue = math.max(0, math.min(functions.getVehicleFuel(vehicle), 100))
+            local engineState = GetIsVehicleEngineRunning(vehicle)
+            local fuel = math.floor(fuelValue)
+            local currentGears = GetVehicleHighGear(vehicle)
+			local newGears = currentGears
+
+            if currentGears == 1 then
+				newGears = 0
+			end
+
+            local speed
+            local normalizedSpeedUnit = string.lower(config.speedUnit)
+
+            if normalizedSpeedUnit == "kph" then
+                speed = math.floor(GetEntitySpeed(vehicle) * 3.6) -- Convert m/s to KPH
+            elseif normalizedSpeedUnit == "mph" then
+                speed = math.floor(GetEntitySpeed(vehicle) * 2.236936) -- Convert m/s to MPH
+            else
+                logger.error("Invalid speed unit in config. Expected 'kph' or 'mph', but got:", config.speedUnit)
+            end
 
             local rpm
             if vehicleType == 8 then -- Helicopters: Simulate RPM based on speed
@@ -54,18 +75,8 @@ function VehicleStatusThread:start()
                 rpm = convertRpmToPercentage(GetVehicleCurrentRpm(vehicle))
             end
 
-            local noslevel = GetNosLevel(vehicle)
-            local fuelValue = math.max(0, math.min(functions.getVehicleFuel(vehicle), 100))
-            local engineState = GetIsVehicleEngineRunning(vehicle)
-            local fuel = math.floor(fuelValue)
-            local currentGears = GetVehicleHighGear(vehicle)
-			local newGears = currentGears
-
-			if currentGears == 1 then
-				newGears = 0
-			end
-
             interface:message("state::vehicle::set", {
+                speedUnit = config.speedUnit,
                 speed = speed,
                 rpm = rpm,
                 engineHealth = engineHealth,
