@@ -60,6 +60,7 @@ jobs:
                   cp ./{LICENSE,README.md,fxmanifest.lua,require.lua,init.lua} ./temp/minimal-hud
                   cp -r ./{config,modules,stream} ./temp/minimal-hud
                   cp -r ./dist ./temp/minimal-hud/
+                  find ./temp -type d -empty -delete
                   cd ./temp && zip -r ../minimal-hud.zip ./minimal-hud
 
             - name: Create Release
