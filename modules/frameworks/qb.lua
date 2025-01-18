@@ -25,8 +25,6 @@ function qbFramework.new()
     return self
 end
 
-
-
 function qbFramework:getPlayerHunger()
     return self.values.hunger or "disabled"
 end

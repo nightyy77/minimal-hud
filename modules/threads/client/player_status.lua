@@ -87,7 +87,6 @@ function PlayerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
             local pedOxygen = math.floor(GetPlayerUnderwaterTimeRemaining(PlayerId()) * 10) or nil
 			local pedStamina = math.floor(100 - GetPlayerSprintStaminaRemaining(PlayerId())) or nil
 
-
             local isInVehicle = IsPedInAnyVehicle(ped, false)
             local isSeatbeltOn = config.useBuiltInSeatbeltLogic and seatbeltLogic.seatbeltState or sharedFunctions.isSeatbeltOn()
 
