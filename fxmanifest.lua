@@ -1,11 +1,10 @@
----@diagnostic disable: undefined-global
-
 fx_version("cerulean")
 game("gta5")
 
 name("minimal-hud")
 author("vipex <discord:vipex.v>")
 version("2.2.0")
+description ("Minimalistic FiveM HUD")
 repository("https://github.com/ThatMadCap/minimal-hud")
 
 shared_scripts({
