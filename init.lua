@@ -42,8 +42,8 @@ local sv_utils = require("modules.utility.server.main")
 
 CreateThread(function()
     if not sv_utils.isInterfaceCompiled() then
-        print("^1Interface not compiled, either compile the interface or download a compiled version here: ^0https://github.com/vipexv/minimal-hud/releases/latest")
+        print("^1UI not compiled, either compile the UI or download a compiled version here: ^0https://github.com/ThatMadCap/minimal-hud/releases/latest")
     end
 
-    sv_utils.versionCheck("vipexv/minimal-hud")
+    sv_utils.versionCheck("ThatMadCap/minimal-hud")
 end)
