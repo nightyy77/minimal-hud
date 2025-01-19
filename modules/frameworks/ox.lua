@@ -1,3 +1,5 @@
+local logger = require("modules.utility.shared.logger")
+
 local oxFramework = {}
 oxFramework.__index = oxFramework
 
@@ -35,5 +37,15 @@ end
 function oxFramework:getPlayerStamina()
     return self.values.stamina
 end
+
+AddEventHandler('ox:playerLoaded', function()
+    logger.info("[oxFramework] Player loaded. Toggling HUD on.")
+    interface:toggle(true)
+end)
+
+AddEventHandler('ox:playerLogout', function()
+    logger.info("[oxFramework] Player logged out. Toggling HUD off.")
+    interface:toggle(false)
+end)
 
 return oxFramework

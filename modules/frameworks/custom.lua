@@ -1,3 +1,5 @@
+local logger = require("modules.utility.shared.logger")
+
 local customFramework = {}
 customFramework.__index = customFramework
 
@@ -21,12 +23,26 @@ function customFramework:getPlayerStress()
     return 0
 end
 
+-- Change this function to return the oxygen value of the player.
 function customFramework:getPlayerOxygen()
     return 100
 end
 
+-- Change this function to return the stamina value of the player.
 function customFramework:getPlayerStamina()
     return 100
 end
+
+-- Change this EventHandler to toggle the HUD on player load
+AddEventHandler('customFramework:client:Connect', function()
+    logger.info("[customFramework] Player loaded. Toggling HUD on.")
+    interface:toggle(true)
+end)
+
+-- Change this EventHandler to toggle the HUD on player logout
+AddEventHandler('customFramework:client:Disconnect', function()
+    logger.info("[customFramework] Player logged out. Toggling HUD off.")
+    interface:toggle(false)
+end)
 
 return customFramework

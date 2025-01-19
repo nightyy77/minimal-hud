@@ -1,3 +1,5 @@
+local logger = require("modules.utility.shared.logger")
+
 local qbFramework = {}
 qbFramework.__index = qbFramework
 
@@ -45,5 +47,15 @@ end
 function qbFramework:getPlayerStress()
     return self.values.stress or "disabled"
 end
+
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+    logger.info("[qbFramework] Player loaded. Toggling HUD on.")
+    interface:toggle(true)
+end)
+
+AddEventHandler('QBCore:Client:OnPlayerUnload', function()
+    logger.info("[qbFramework] Player logged out. Toggling HUD off.")
+    interface:toggle(false)
+end)
 
 return qbFramework
