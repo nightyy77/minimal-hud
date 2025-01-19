@@ -41,7 +41,7 @@
 - [Download the latest release](https://github.com/thatmadcap/minimal-hud/releases/latest), add to your resources, ensure in your `server.cfg`.
 - Don't forget to set a framework in `config/shared.lua` and any custom logic into `config/functions.lua`.
 
-### Commands / Exports:
+#### Commands / Exports:
 
 - Command: Use the command `/togglehud` to toggle the HUD visibility on or off.
 - Export: You can also toggle the HUD programmatically using the following export: `exports['minimal-hud']:toggleHud(state)  -- state: true to show, false to hide`
