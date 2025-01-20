@@ -40,6 +40,7 @@
 
 - [Download the latest release](https://github.com/thatmadcap/minimal-hud/releases/latest), add to your resources, ensure in your `server.cfg`.
 - Don't forget to set a framework in `config/shared.lua` and any custom logic into `config/functions.lua`.
+- If using the built-in seatbelt logic, add `setr game_enableFlyThroughWindscreen true` to your `server.cfg`.
 
 #### Commands / Exports:
 

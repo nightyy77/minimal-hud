@@ -13,13 +13,15 @@ function SeatbeltLogic.new()
     local self = setmetatable({}, SeatbeltLogic)
 
     self.seatbeltState = false
-    self.ejectVelocity = (1 / 2.236936)
-    self.unknownEjectVelocity = (2 / 2.236936)
+    self.speedConversion = string.lower(config.speedUnit) == "mph" and 2.236936 or 3.6
+    self.ejectVelocity = config.ejectMinSpeed / self.speedConversion
+    self.unknownEjectVelocity = 1.0
     self.unknownModifier = 17.0
-    self.minDamage = 0.0
+    self.minDamage = 10.0
 
     RegisterCommand("-toggle_seatbelt", function()
         local ped = PlayerPedId()
+
         if not IsPedInAnyVehicle(ped, false) or IsPedOnAnyBike(ped) then
             return logger.info("(SeatbeltLogic:toggle) Seatbelt is not available either due to the fact that the player is not in a vehicle or on a bike.")
         end

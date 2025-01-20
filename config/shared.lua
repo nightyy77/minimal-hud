@@ -1,6 +1,9 @@
 return {
-    useBuiltInSeatbeltLogic = true, -- Whether to enable the custom seatbelt logic in this script, or use your own one, keep in mind that if you decide to use your own seatbelt logic, you will need to edit the source code to tailor your needs.
-    framework = "none", -- none, esx, qb, ox, custom. If you wanna enable the hunger/thirst/stress stats you need to use a framework, or you can edit the source code to tailor your own custom framework.
-    compassLocation = "top", -- top, bottom, hidden.
-    speedUnit = "mph", -- Choose the speed unit: "mph" for miles per hour, or "kph" for kilometers per hour.
+    framework = "ox", -- Framework for player stats: "none", "esx", "qb", "ox", "custom". TODO: CHANGE BACK TO "NONE" BEFORE RELEASE!!!!!!!!!!!
+
+    useBuiltInSeatbeltLogic = true, -- Enable custom seatbelt logic (true/false).
+    speedUnit = "mph", -- Speed unit: "mph" or "kph".
+    ejectMinSpeed = 20.0, -- Minimum speed to eject when not wearing a seatbelt (in speedUnit).
+
+    compassLocation = "top", -- Compass position: "top", "bottom", "hidden".
 }
