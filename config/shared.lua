@@ -1,5 +1,5 @@
 return {
-    framework = "ox", -- Framework for player stats: "none", "esx", "qb", "ox", "custom". TODO: CHANGE BACK TO "NONE" BEFORE RELEASE!!!!!!!!!!!
+    framework = "none", -- Framework for player stats: "none", "esx", "qb", "ox", "custom".
 
     useBuiltInSeatbeltLogic = true, -- Enable custom seatbelt logic (true/false).
     speedUnit = "mph", -- Speed unit: "mph" or "kph".
