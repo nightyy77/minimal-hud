@@ -94,7 +94,7 @@ function PlayerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
                 if not self:getIsVehicleThreadRunning() and vehicleStatusThread then
                     vehicleStatusThread:start()
                     DisplayRadar(true)
-                    print("[INFO] Vehicle status thread started. Radar enabled.")
+                    logger.verbose("(playerStatus) (vehicleStatusThread) Vehicle status thread started.")
                 else
                     DisplayRadar(true)
                 end
