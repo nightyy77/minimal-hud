@@ -2,13 +2,14 @@ import { usePlayerState } from "@/states/player";
 import React from "preact/compat";
 import { FaCompass, FaLocationDot, FaMap } from "react-icons/fa6";
 import IconLabelBox from "./ui/icon-label-box";
-import { useCompassLocation } from "@/states/compass-location";
+import { useCompassLocation, useCompassAlways } from "@/states/compass-location";
 
 const Compass = () => {
   const playerState = usePlayerState();
   const compassLocation = useCompassLocation();
+  const compassAlways = useCompassAlways();
 
-  if (!playerState.isInVehicle) {
+  if (!compassAlways && !playerState.isInVehicle) {
     return null;
   }
   return (

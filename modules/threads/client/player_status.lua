@@ -90,13 +90,17 @@ function PlayerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
             local isInVehicle = IsPedInAnyVehicle(ped, false)
             local isSeatbeltOn = config.useBuiltInSeatbeltLogic and seatbeltLogic.seatbeltState or sharedFunctions.isSeatbeltOn()
 
-            if isInVehicle and not self:getIsVehicleThreadRunning() and vehicleStatusThread then
-                vehicleStatusThread:start()
-                DisplayRadar(true)
-                logger.verbose("(playerStatus) (vehicleStatusThread) Vehicle status thread started.")
+            if isInVehicle then
+                if not self:getIsVehicleThreadRunning() and vehicleStatusThread then
+                    vehicleStatusThread:start()
+                    DisplayRadar(true)
+                    logger.verbose("(playerStatus) (vehicleStatusThread) Vehicle status thread started.")
+                else
+                    DisplayRadar(true)
+                end
+            else
+                DisplayRadar(_G.minimapVisible)
             end
-
-            DisplayRadar(isInVehicle)
 
             local player_data = {
                 health = pedHealth,

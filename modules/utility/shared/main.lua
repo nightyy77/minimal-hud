@@ -138,6 +138,10 @@ utility.setupMinimap = function()
     SetBigmapActive(true, false)
     SetMinimapClipType(0)
     CreateThread(utility.preventBigmapFromStayingActive)
+
+    if not _G.minimapVisible then
+        DisplayRadar(false)
+    end
 end
 
 ---@param coords vector3
