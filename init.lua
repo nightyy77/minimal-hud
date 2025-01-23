@@ -14,11 +14,21 @@ if not IsDuplicityVersion() then
 
     playerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
 
+    _G.minimapVisible = config.minimapAlways
+
     exports("toggleHud", function(state)
         interface:toggle(state or nil)
         DisplayRadar(state)
         logger.info("(exports:toggleHud) Toggled HUD to state: ", state)
     end)
+
+    local function toggleMap(state)
+        _G.minimapVisible = state
+        DisplayRadar(state)
+        logger.info("(toggleMap) Toggled map to state: ", state)
+    end
+
+    exports("toggleMap", toggleMap)
 
     RegisterCommand("togglehud", function()
         interface:toggle()
@@ -33,6 +43,7 @@ if not IsDuplicityVersion() then
         cb(data)
 
         CreateThread(utility.setupMinimap)
+        toggleMap(config.minimapAlways)
     end)
 
     return

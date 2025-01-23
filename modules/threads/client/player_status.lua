@@ -99,7 +99,7 @@ function PlayerStatusThread:start(vehicleStatusThread, seatbeltLogic, framework)
                     DisplayRadar(true)
                 end
             else
-                DisplayRadar(config.minimapAlways)
+                DisplayRadar(_G.minimapVisible)
             end
 
             local player_data = {
