@@ -42,10 +42,16 @@
 - Don't forget to set a framework in `config/shared.lua` and any custom logic into `config/functions.lua`.
 - If using the built-in seatbelt logic, add `setr game_enableFlyThroughWindscreen true` to your `server.cfg`.
 
-#### Commands / Exports:
-
-- Command: Use the command `/togglehud` to toggle the HUD visibility on or off.
-- Export: You can also toggle the HUD programmatically using the following export: `exports['minimal-hud']:toggleHud(state)  -- state: true to show, false to hide`
+Commands:
+```lua
+/togglehud -- toggle the HUD visibility on or off.
+```
+Exports:
+```lua
+-- state: true to show, false to hide.
+exports['minimal-hud']:toggleHud(state) -- toggle HUD visiblity.
+exports['minimal-hud']:toggleMap(state) -- toggle minimap visibility.
+```
 
 ## Development Setup
 
