@@ -6,6 +6,7 @@ export interface VehicleStateInterface {
     engineState: boolean;
     engineHealth: number;
     gears: number;
+    currentGear: string;
     fuel: number;
     nos: number;
     speedUnit: "MPH" | "KPH";
@@ -17,6 +18,7 @@ const mockVehicleState: VehicleStateInterface = {
     engineState: true,
     engineHealth: 50,
     gears: 6,
+    currentGear: "N",
     fuel: 50,
     nos: 40,
     speedUnit: "MPH"

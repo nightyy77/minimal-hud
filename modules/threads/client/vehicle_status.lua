@@ -50,16 +50,32 @@ function VehicleStatusThread:start()
             local fuelValue = math.max(0, math.min(functions.getVehicleFuel(vehicle), 100))
             local engineState = GetIsVehicleEngineRunning(vehicle)
             local fuel = math.floor(fuelValue)
-            local currentGears = GetVehicleHighGear(vehicle)
-			local newGears = currentGears
+            local highGear = GetVehicleHighGear(vehicle)
+            local currentGear = GetVehicleDashboardCurrentGear()
+            local newGears = highGear
 
-            if currentGears == 1 then
-				newGears = 0
-			end
+            -- Fix for vehicles that only have 1 gear
+            if highGear == 1 then
+                newGears = 0
+            end
 
+            -- Display vehicle gear
+            local gearString = "N"
+            if not engineState then
+                gearString = ""
+            elseif currentGear == 0 and GetEntitySpeed(vehicle) > 0 then
+                gearString = "R"
+            elseif currentGear == 1 and GetEntitySpeed(vehicle) < 0.1 and engineState then
+                gearString = "N"
+            elseif currentGear == 1 then
+                gearString = "1"
+            elseif currentGear > 1 then
+                gearString = tostring(math.floor(currentGear - 1))
+            end
+
+            -- Handle MPH and KPH
             local speed
             local normalizedSpeedUnit = string.lower(config.speedUnit)
-
             if normalizedSpeedUnit == "kph" then
                 speed = math.floor(GetEntitySpeed(vehicle) * 3.6) -- Convert m/s to KPH
             elseif normalizedSpeedUnit == "mph" then
@@ -82,6 +98,7 @@ function VehicleStatusThread:start()
                 engineHealth = engineHealth,
                 engineState = engineState,
                 gears = newGears,
+                currentGear = gearString,
                 fuel = fuel,
                 nos = noslevel,
             })

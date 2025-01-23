@@ -6,11 +6,12 @@ interface SpeedometerProps {
   maxRpm: number;
   rpm: number;
   gears: number;
+  currentGear: string;
   engineHealth: number;
   speedUnit: "MPH" | "KPH";
 }
 
-const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer({ speed = 50, maxRpm = 100, rpm = 20, gears = 8, engineHealth = 50, speedUnit }) {
+const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer({ speed = 50, maxRpm = 100, rpm = 20, gears = 8, currentGear, engineHealth = 50, speedUnit }) {
   const percentage = useMemo(() => (rpm / maxRpm) * 100, [rpm, maxRpm]);
   const activeArcRef = useRef<SVGPathElement>(null);
 
@@ -110,13 +111,13 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         {gearLines}
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center flex flex-col mb-2">
-        <span className="text-[2vw] font-bold text-white tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-2"> {speed} </span>
-          <span className="text-[1vw] -mt-1 font-semibold text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-2 uppercase"> {speedUnit} </span>
+        <div className="text-center flex flex-col">
+          <span className="absolute -mt-5 left-1/2 transform -translate-x-1/2 text-[1vw] font-semibold text-gray-400 tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-1"> {currentGear} </span>
+          <span className="text-[2vw] font-bold text-white tabular-nums drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-2"> {speed} </span>
+          <span className="text-[1vw] -mt-1 font-semibold text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] ml-4 uppercase"> {speedUnit} </span>
           {engineHealth < 30 && (
             <div className={"flex items-center justify-center *:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] *:size-[0.9vw] *:text-red-600 mt-1"}>
               <PiEngineFill />
-
             </div>
           )}
         </div>

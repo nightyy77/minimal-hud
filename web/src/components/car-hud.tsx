@@ -54,7 +54,15 @@ const CarHud = React.memo(function CarHud() {
         //   willChange: "transform",
         // }}
       >
-        <Speedometer rpm={vehicleState.rpm} speed={vehicleState.speed} gears={vehicleState.gears} engineHealth={vehicleState.engineHealth} maxRpm={100} speedUnit={vehicleState.speedUnit} />
+        <Speedometer
+          speed={vehicleState.speed}
+          maxRpm={100}
+          rpm={vehicleState.rpm}
+          gears={vehicleState.gears}
+          currentGear={vehicleState.currentGear}
+          engineHealth={vehicleState.engineHealth}
+          speedUnit={vehicleState.speedUnit}
+        />
         <div className={"flex gap-2 items-center 4k:-mt-14 mt-2.5 ml-2"}>
           {renderProgressBars()}
         </div>
