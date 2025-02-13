@@ -15,7 +15,7 @@ export const StatBar = ({ Icon = TiHeartFullOutline, value = 20, maxValue = 100,
   const finalIconColor = value === 0 ? "text-red-500" : iconColor || "text-y_white";
   return (
     <div className={`flex ${vertical ? "h-[3dvh]" : "w-full"} items-center gap-1 4k:gap-2`} {...props}>
-      {!vertical && <Icon className="${finalIconColor} text-[1vw] " />}
+      {!vertical && <Icon className={`${finalIconColor} text-[1vw]`} />}
       {!vertical && (
         <p
           className="text-[0.6vw] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] w-[20px] 4k:text-base 2k:text-sm text-center font-bold"
@@ -32,12 +32,12 @@ export const StatBar = ({ Icon = TiHeartFullOutline, value = 20, maxValue = 100,
           style={{
             backgroundColor: color,
             [vertical ? "height" : "width"]: `${percentage}%`,
-            borderRadius: percentage < 100 ? "50px" : "9999px",
             overflow: "hidden",
+            boxShadow: `0 1.2px 1.2px ${color}`,
           }}
         />
       </div>
-      {vertical && <Icon className="${finalIconColor} drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] text-[0.8vw]" />}
+      {vertical && <Icon className={`${finalIconColor} drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] text-[0.8vw]`} />}
     </div>
   );
 };
@@ -77,7 +77,7 @@ export const StatBarSegmented = ({ Icon = TiHeartFullOutline, value = 20, color 
         {segmentFills.map((fill, index) => (
           <svg key={index} width="100%" height="100%" className={"rounded-full "} viewBox="0 0 100 24" preserveAspectRatio="none">
             <rect x="0" y="0" width="100" height="24" className={"fill-black/30"} />
-            <rect x="0" y="0" width={fill} height="24" fill={color} className={"transition-all"} />
+            <rect x="0" y="0" width={fill} height="24" fill={color} className={"transition-all"} style={{ boxShadow: `0 1.2px 1.2px ${color}` }} />
           </svg>
         ))}
       </div>

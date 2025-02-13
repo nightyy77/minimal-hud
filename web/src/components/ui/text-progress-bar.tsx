@@ -30,10 +30,11 @@ export const TextProgressBar = ({ value = 50, icon, color = "#06CE6B", iconSize 
       </div>
       <div className={"relative w-[80%] bg-black/20 shadow h-[3.5px] 4k:h-[5px] 4k:mt-1 rounded-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]"}>
         <div
-          className="absolute max-w-full transition-all rounded-full shadow left-0 h-full z-20"
+          className="absolute max-w-full transition-all rounded-full left-0 h-full z-20"
           style={{
             width: `${value}%`,
             backgroundColor: getColor,
+            boxShadow: `0 1.2px 1.2px ${getColor}`,
           }}
         ></div>
       </div>
